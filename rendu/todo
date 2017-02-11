@@ -1,0 +1,45 @@
+
+Lem_in To Do :
+==============
+
+[ ] Creer une structure generique de graph	
+[ ] Trouver le shortest path, BFS, 
+[ ] trouver les adjacences du point d'arrive ets shortest paths
+
+
+Error handling :
+----------------
+
+1. Nants
+	- nants
+	- Error : nants <= 0 
+	- Error : nants > INT_MAX ? 
+	- Error : no nants	
+	- Warning : Ignore #comments
+
+2. Node names + coordinates
+	- 1 name, 2 coor int  
+	- Error : name w/ 'L' OR '#'
+	- Error : no name 
+	- Error : no start || no end
+	- Warning : Ignore #comments
+
+3. Edges
+	- name-name
+	- Error : unknown name 
+	- Error : More tha 2 names 
+	- Error : Wrong format 'name-name'
+	- Warning : Ignore ##unknown cmd 	 
+	- Warning : Ignore #comments
+
+
+1-4
+
+ 1| 
+ 2|
+ 3|
+ 4|
+ 5|
+ 6|
+ 7|
+
