@@ -1,5 +1,5 @@
 
-#include "libft.h"
+#include "lem_in.h"
 
 
 
@@ -9,6 +9,8 @@
 void parse_graph(t_graph *g, t_env *e)
 {
 	char *line;			
+
+	(void)g;
 
 	if (get_next_line(0, &line) == 0)
 	{
@@ -23,13 +25,16 @@ void parse_graph(t_graph *g, t_env *e)
 		exit(0);
 	}
 	else 
+	{	
+		ft_putendl_fd(line, 1);
 		free(line);
+	}
+
 
 	while (get_next_line(0, &line))
 	{
 		ft_putendl_fd(line, 1);	
 		free(line);		
 	}
-	free(line);
 }
 

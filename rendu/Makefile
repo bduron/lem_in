@@ -10,11 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-CHECKER= checker
-PS= push_swap
+LEM_IN= lem_in
 
 CC= gcc
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -g -fsanitize=address
 LIBFT= -Llibft -lft 
 
 MKDIR= mkdir -p
@@ -22,71 +21,48 @@ RM= rm -rf
 
 INC_DIR= includes/
 
-SHARED_SRC= command_launcher.c \
-			error_handling.c \
-			sort_commands.c \
-			stack_management.c \
-			stack_print.c
-PS_SRC= 	algo_inits.c \
-			algo_quartile.c \
-			algo_small.c \
-			algo_utils.c \
-			push_swap.c \
-			quicksort.c \
-			stack_state.c
-CHECKER_SRC= checker.c \
-			checker_display.c \
-			checker_parsing.c	
+SRC= \
+ft_graph.c \
+lemin.c \
+lemin_init.c \
+lemin_parsing.c  
 
-SHARED_OBJ= $(SHARED_SRC:.c=.o)
-PS_OBJ= $(PS_SRC:.c=.o)
-CHECKER_OBJ= $(CHECKER_SRC:.c=.o)
 
-VPATH= srcs/checker/:srcs/shared/:srcs/push_swap/
+OBJ= $(SRC:.c=.o)
+
+VPATH= srcs/
 
 ########################
 #    Makefile rules    # 
 ########################
 
-all: libft $(CHECKER) $(PS)
+all: libft $(LEM_IN)
 
 libft:
 	@make -C libft
 
 # Executables 
 
-$(CHECKER): $(CHECKER_OBJ) $(SHARED_OBJ) 
-	@$(CC) -o $@ $(CFLAGS) $^ -I $(INC_DIR) $(LIBFT) 
-	@echo "Compiling [$@]"
-
-$(PS): $(PS_OBJ) $(SHARED_OBJ) 
+$(LEM_IN): $(OBJ)
 	@$(CC) -o $@ $(CFLAGS) $^ -I $(INC_DIR) $(LIBFT) 
 	@echo "Compiling [$@]"
 
 # Object files 
 
-$(CHECKER_OBJ): $(CHECKER_SRC)
-	@$(CC) -c $^ $(CFLAGS) -I $(INC_DIR) 	
-	@echo "Compiling [$^]"
-
-$(SHARED_OBJ): $(SHARED_SRC)
-	@$(CC) -c $^ $(CFLAGS) -I $(INC_DIR) 
-	@echo "Compiling [$^]"
-
-$(PS_OBJ): $(PS_SRC)
+$(OBJ): $(SRC)
 	@$(CC) -c $^ $(CFLAGS) -I $(INC_DIR) 
 	@echo "Compiling [$^]"
 
 # Cleaning rules 
 
 clean:
-	@rm -f $(PS_OBJ) $(SHARED_OBJ) $(CHECKER_OBJ)
-	@echo "Cleaning [$(PS_OBJ) $(SHARED_OBJ) $(CHECKER_OBJ)]"	
+	@rm -f $(OBJ)
+	@echo "Cleaning [$(OBJ)]"	
 
 fclean: clean
-	@rm -rf $(CHECKER) $(PS)
+	@rm -rf $(LEM_IN)
 	@make fclean -C libft
-	@echo "Cleaning [libft checker push_swap]"	
+	@echo "Cleaning [libft lem_in]"	
 
 re: fclean all
 
