@@ -12,6 +12,7 @@
 # define MAXANT_ERR "ERROR: Too many ants"
 # define NO_CMD_ERR "ERROR: ##start or ##end is missing"
 # define NO_PATH_ERR "ERROR: no valid path found"
+# define INVALID_ROOM_ERR "ERROR: invalid room format"
 # define START "##start"
 # define END "##end"
 
@@ -32,6 +33,9 @@ void parse_graph(t_graph *g, t_env *e);
 void parse_ant(t_env *e);
 void parse_room(t_env *e);
 int is_comment(char *line);
+int is_start(char *line);
+int is_end(char *line);
+char **is_room(char *line);
 void env_init(t_env *e);
 
 #endif
