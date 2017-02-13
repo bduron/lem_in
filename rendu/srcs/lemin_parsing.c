@@ -20,11 +20,11 @@ void parse_room(t_env *e)
 		  	free(line);		
 			continue ;
 		}
-		if ()
-		{
-
-
-		}		
+//		if ()
+//		{
+//
+//
+//		}		
 
 	}	
 	if (!e->nroom)

@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+OS= $(shell uname -s)
+
 NAME= libft.a
 SRC= \
 ft_printf_atoi.c \
@@ -107,13 +109,25 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $^
 	@ranlib $@
+ifeq ($(OS),Linux)
 	@tput ed
 	@echo -e 'Libft linked [\033[32mDone\033[0m]'
+endif
+ifeq ($(OS),Darwin)
+	@printf '\033[K'
+	@echo 'Libft compiled'
+endif	
 
 %.o: %.c
 	@gcc $(FLAGS) -c $^ -I $(HEADER)
-	@tput ed
+ifeq ($(OS),Linux)
+	@tput ed	
 	@echo -ne 'Compiling [\033[32m$^\033[0m]\r'
+endif
+ifeq ($(OS),Darwin)
+	@printf '\033[K'
+	@printf 'Compiling [$^]\r'
+endif
 
 clean:
 	@rm -f $(OBJ)
