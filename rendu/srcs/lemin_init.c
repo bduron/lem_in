@@ -4,8 +4,8 @@ void env_init(t_env *e)
 {
 	int i;	
 
-	e->start = MAXV;
-	e->end = MAXV;
+	e->start = MAXV - 1;
+	e->end = MAXV - 1;
 	e->nants = 0;
 	e->nroom = 0;
 	e->error = NULL;

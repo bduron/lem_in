@@ -25,6 +25,20 @@ int ft_isdigitstr(char *s) // Ajouter a la lib
 	return ((*s == '\0') ? 1 : 0);
 }
 
+int is_duplicate(char *name, t_env *e)
+{
+	int i;
+
+	i = 0;
+	while (i < e->nroom)
+	{
+		if (ft_strcmp(name, e->name[i]) == 0) 
+			return (1);	
+		i++;
+	}
+	return (0);
+}
+
 char **is_room(char *line)
 {
 	char **room;
@@ -102,13 +116,27 @@ void parse_room(t_env *e)
 		else if ((room = is_room(line)))
 		{
 				ft_putendl_fd(line, 1);
+				if (is_duplicate(room[0], e))
+				{
+					ft_putendl_fd(DUPLICATE_ROOM_ERR, 2);	
+					ft_strsplitdel(room);
+					exit(0);
+				}	
 				e->name[e->nroom] = room[0];
 				e->coor_x[e->nroom] = ft_atoi(room[1]);
 				e->coor_y[e->nroom] = ft_atoi(room[2]);
 				free(room);
+				if (start == TRUE)
+				{
+					e->start = e->nroom;	
+					start = FALSE;
+				}	
+				if (end == TRUE)
+				{
+					e->end = e->nroom;	
+					end = FALSE;
+				}	
 				e->nroom++;
-				if ()	
-				// save 	
 		}	
 		else 
 		{
@@ -121,6 +149,11 @@ void parse_room(t_env *e)
 	if (!e->nroom)
 	{
 		ft_putendl_fd(NO_ROOM_ERR , 2);	
+		exit(0);
+	}
+	if (e->start == MAXV - 1 || e->end == MAXV - 1)
+	{
+		ft_putendl_fd(NO_CMD_ERR , 2);	
 		exit(0);
 	}
 }
@@ -163,5 +196,6 @@ void parse_graph(t_graph *g, t_env *e)
 	parse_room(e);
 	(void)g;
 
+	//ft_printf("start = %s\nend = %s", e->name[e->start], e->name[e->end]);
 }
 

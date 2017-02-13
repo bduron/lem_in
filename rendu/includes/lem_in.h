@@ -13,6 +13,7 @@
 # define NO_CMD_ERR "ERROR: ##start or ##end is missing"
 # define NO_PATH_ERR "ERROR: no valid path found"
 # define INVALID_ROOM_ERR "ERROR: invalid room format"
+# define DUPLICATE_ROOM_ERR "ERROR: duplicate room"
 # define START "##start"
 # define END "##end"
 
