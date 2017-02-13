@@ -7,6 +7,7 @@ void env_init(t_env *e)
 	e->start = MAXV;
 	e->end = MAXV;
 	e->nants = 0;
+	e->nroom = 0;
 	e->error = NULL;
 	i = 0;
 	while (i < MAXV)
