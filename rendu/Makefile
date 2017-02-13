@@ -6,7 +6,7 @@
 #    By: bduron <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 13:02:54 by bduron            #+#    #+#              #
-#    Updated: 2017/02/08 16:56:29 by bduron           ###   ########.fr        #
+#    Updated: 2017/02/13 17:36:33 by bduron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,11 @@ SRC= \
 ft_graph.c \
 lemin.c \
 lemin_init.c \
-lemin_parsing.c  
+lemin_parsing.c \
+lemin_parsing_wrapper.c \
+lemin_parsing_helper.c \
+lemin_parsing_helper2.c \
+addtolibft.c
 
 
 OBJ= $(SRC:.c=.o)
