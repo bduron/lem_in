@@ -33,10 +33,20 @@ typedef struct	s_env
 void parse_graph(t_graph *g, t_env *e);
 void parse_ant(t_env *e);
 void parse_room(t_env *e);
+void nocmd_noroom_err(t_env *e);
+void invalid_room_err(char *line);
 int is_comment(char *line);
 int is_start(char *line);
+int is_start_wrapper(char *line, t_bool *start);
+int is_end_wrapper(char *line, t_bool *end);
+int is_comment_wrapper(char *line);
 int is_end(char *line);
 char **is_room(char *line);
+int is_duplicate(char *name, t_env *e);
+void save_room(t_env *e, char **room, t_bool *start, t_bool *end);
 void env_init(t_env *e);
+
+void    ft_strsplitdel(char **split); // add to lib
+int ft_isdigitstr(char *s); // add to lib 
 
 #endif
