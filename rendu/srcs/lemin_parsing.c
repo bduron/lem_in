@@ -6,27 +6,27 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:07:58 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/13 17:40:58 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/01 11:15:38 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void parse_edges(t_env *e, t_graph *g)
+void parse_edges(t_env *e, t_graph *g, char *line)
 {
-	char *line;
 	char **edge;
 	size_t nlines_read;
 
+	parse_edge_transition(e, g, line);
 	nlines_read = 0;
 	while (get_next_line(0, &line))		
 	{
 		if (is_comment_wrapper(line))
 			continue ;
-		if (edge = is_edge(e, g, line))
+		if ((edge = is_edge(e, line)))
 		{
 			ft_putendl_fd(line, 1);
-			save_edge(e, g, edge); // [ ] // IF is_not_duplicate edge (check in adjacency list) / lst_find 
+	//		save_edge(e, g, edge); // [ ] // IF is_not_duplicate edge (check in adjacency list) / lst_find 
 			free(line);
 		}		
 		else
@@ -35,13 +35,14 @@ void parse_edges(t_env *e, t_graph *g)
 	}
 	if (!nlines_read) //	IF Adjacency list is empty --> Error, no edges  
 	{
-		ft_putendl_fd(INVALID_EDGE_ERR, 2);
+		ft_putendl_fd(NO_EDGE_ERR, 2);
 		exit(0);
 	}
+	(void)g; //////
 }
 
 
-void parse_room(t_env *e)
+char *parse_room(t_env *e)
 {
 	char *line;
 	char **room;
@@ -68,6 +69,7 @@ void parse_room(t_env *e)
 			invalid_room_err(line);
 	}
 	nocmd_noroom_err(e);
+	return (line);
 }
 
 void parse_ant(t_env *e)

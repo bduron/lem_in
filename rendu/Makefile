@@ -6,11 +6,11 @@
 #    By: bduron <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 13:02:54 by bduron            #+#    #+#              #
-#    Updated: 2017/02/13 17:36:33 by bduron           ###   ########.fr        #
+#    Updated: 2017/03/01 12:37:18 by bduron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LEM_IN= lem_in
+LEM_IN= lem-in
 
 CC= gcc
 CFLAGS= -Wall -Wextra -Werror -g -fsanitize=address

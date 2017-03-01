@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:30:14 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/13 17:32:32 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/01 09:27:33 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void save_room(t_env *e, char **room, t_bool *start, t_bool *end)
 		ft_strsplitdel(room);
 		exit(0);
 	}
-	e->name[e->nroom] = room[0]; // Strcpy ? 
+	e->name[e->nroom] = ft_strdup(room[0]); // Strdup ?  
 	e->coor_x[e->nroom] = ft_atoi(room[1]);
 	e->coor_y[e->nroom] = ft_atoi(room[2]);
-	free(room); // strsplitdel ? 
+	ft_strsplitdel(room);
 	if (*start == TRUE)
 	{
 		e->start = e->nroom;

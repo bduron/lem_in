@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:27:31 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/13 17:29:19 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/01 11:05:39 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ void nocmd_noroom_err(t_env *e)
 	if (e->start == MAXV - 1 || e->end == MAXV - 1)
 	{
 		ft_putendl_fd(NO_CMD_ERR , 2);
+		exit(0);
+	}
+	if (e->start == e->end)
+	{
+		ft_putendl_fd(START_END_ERR , 2);
 		exit(0);
 	}
 }
