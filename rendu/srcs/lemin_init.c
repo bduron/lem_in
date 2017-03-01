@@ -4,7 +4,7 @@ void env_init(t_env *e)
 {
 	int i;	
 
-	e->start = MAXV - 1;
+	e->start = MAXV - 1; // Bug dans certains cas ?  
 	e->end = MAXV - 1;
 	e->nants = 0;
 	e->nroom = 0;

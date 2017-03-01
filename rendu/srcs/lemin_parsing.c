@@ -12,6 +12,35 @@
 
 #include "lem_in.h"
 
+void parse_edges(t_env *e, t_graph *g)
+{
+	char *line;
+	char **edge;
+	size_t nlines_read;
+
+	nlines_read = 0;
+	while (get_next_line(0, &line))		
+	{
+		if (is_comment_wrapper(line))
+			continue ;
+		if (edge = is_edge(e, g, line))
+		{
+			ft_putendl_fd(line, 1);
+			save_edge(e, g, edge); // [ ] // IF is_not_duplicate edge (check in adjacency list) / lst_find 
+			free(line);
+		}		
+		else
+			invalid_edge_err(line); 
+		nlines_read++;
+	}
+	if (!nlines_read) //	IF Adjacency list is empty --> Error, no edges  
+	{
+		ft_putendl_fd(INVALID_EDGE_ERR, 2);
+		exit(0);
+	}
+}
+
+
 void parse_room(t_env *e)
 {
 	char *line;
@@ -76,6 +105,7 @@ void parse_graph(t_graph *g, t_env *e)
 
 	parse_ant(e);
 	parse_room(e);
+	parse_edges(e, g);
 	(void)g;
 
 	//ft_printf("start = %s\nend = %s", e->name[e->start], e->name[e->end]);

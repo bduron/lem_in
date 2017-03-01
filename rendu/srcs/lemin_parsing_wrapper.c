@@ -12,6 +12,15 @@
 
 #include "lem_in.h"
 
+
+void invalid_edge_err(char *line) //put in wrapper 2 
+{
+	ft_putendl_fd(line, 1);
+	ft_putendl_fd(INVALID_EDGE_ERR, 2);
+	free(line);
+	exit(0);
+}
+
 void invalid_room_err(char *line)
 {
 	ft_putendl_fd(line, 1);

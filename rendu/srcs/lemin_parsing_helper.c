@@ -63,10 +63,10 @@ void save_room(t_env *e, char **room, t_bool *start, t_bool *end)
 		ft_strsplitdel(room);
 		exit(0);
 	}
-	e->name[e->nroom] = room[0];
+	e->name[e->nroom] = room[0]; // Strcpy ? 
 	e->coor_x[e->nroom] = ft_atoi(room[1]);
 	e->coor_y[e->nroom] = ft_atoi(room[2]);
-	free(room);
+	free(room); // strsplitdel ? 
 	if (*start == TRUE)
 	{
 		e->start = e->nroom;
