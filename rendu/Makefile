@@ -13,7 +13,7 @@
 LEM_IN= lem-in
 
 CC= gcc
-CFLAGS= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS= -Wall -Wextra -Werror -g #-fsanitize=address
 LIBFT= -Llibft -lft 
 
 MKDIR= mkdir -p
@@ -29,6 +29,7 @@ lemin_parsing.c \
 lemin_parsing_wrapper.c \
 lemin_parsing_helper.c \
 lemin_parsing_helper2.c \
+lemin_free.c \
 addtolibft.c
 
 

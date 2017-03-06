@@ -12,13 +12,11 @@
 
 #include "lem_in.h"
 
-void parse_edges(t_env *e, t_graph *g, char *line)
+void parse_edges(t_env *e, t_graph *g)
 {
 	char **edge;
-	size_t nlines_read;
+	char *line;
 
-	parse_edge_transition(e, g, line);
-	nlines_read = 0;
 	while (get_next_line(0, &line))		
 	{
 		if (is_comment_wrapper(line))
@@ -26,19 +24,13 @@ void parse_edges(t_env *e, t_graph *g, char *line)
 		if ((edge = is_edge(e, line)))
 		{
 			ft_putendl_fd(line, 1);
-	//		save_edge(e, g, edge); // [ ] // IF is_not_duplicate edge (check in adjacency list) / lst_find 
-			free(line);
+			save_edge(e, g, edge);
+			//// IF is_not_duplicate edge (check in adjacency list) / lst_find 
+			ft_strdel(&line);
 		}		
 		else
 			invalid_edge_err(line); 
-		nlines_read++;
 	}
-	if (!nlines_read) //	IF Adjacency list is empty --> Error, no edges  
-	{
-		ft_putendl_fd(NO_EDGE_ERR, 2);
-		exit(0);
-	}
-	(void)g; //////
 }
 
 
@@ -63,7 +55,7 @@ char *parse_room(t_env *e)
 		{
 			ft_putendl_fd(line, 1);
 			save_room(e, room, &start, &end);
-			free(line);
+			ft_strdel(&line);
 		}	
 		else 
 			invalid_room_err(line);
@@ -79,34 +71,36 @@ void parse_ant(t_env *e)
 	if (get_next_line(0, &line) == 0)
 	{
 		ft_putendl_fd(NO_INPUT_ERR , 2);	
-		free(line);		
+		ft_strdel(&line);		
 		exit(0);
 	}
 	else if ((e->nants = ft_atoi(line)) < 1)
 	{ 
 		ft_putendl_fd(NO_ANT_ERR, 2);	
-		free(line);		
+		ft_strdel(&line);		
 		exit(0);
 	}
 	else if (e->nants > MAXANT) 
 	{	
 		ft_putendl_fd(MAXANT_ERR, 2);
-		free(line);
+		ft_strdel(&line);
 		exit(0);
 	}	
 	else 
 	{	
 		ft_putendl_fd(line, 1);
-		free(line);
+		ft_strdel(&line);
 	}	
 }
 
 
 void parse_graph(t_graph *g, t_env *e)
 {
+	char *line;
 
 	parse_ant(e);
-	parse_room(e);
+	line = parse_room(e);
+	parse_room_to_edges(e, g, line);
 	parse_edges(e, g);
 	(void)g;
 

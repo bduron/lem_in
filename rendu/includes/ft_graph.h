@@ -4,11 +4,11 @@
 
 # include "libft.h"
 
-# define MAXV 1000
+# define MAXV 10000
 
 typedef struct	s_edgenode
 {
-	int					id;
+	int					y;
 	int					weight;
 	char				*name;
 	struct s_edgenode	*next;
@@ -22,11 +22,17 @@ typedef struct	s_graph
 	int					nvertices;
 	int					nedges;
 	t_bool				directed;
+	int					bfs_parent[MAXV + 1];
+	t_bool				bfs_processed[MAXV + 1];
+	t_bool				bfs_discovered[MAXV + 1];
 
 
 }				t_graph;
 
 
 void initialize_graph(t_graph *g, t_bool directed);
+void insert_edge(t_graph *g, int x, int y, t_bool directed);
+void print_graph(t_graph *g, char **label);
+
 
 #endif

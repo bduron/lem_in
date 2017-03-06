@@ -17,7 +17,7 @@ void invalid_edge_err(char *line) //put in wrapper 2
 {
 	ft_putendl_fd(line, 1);
 	ft_putendl_fd(INVALID_EDGE_ERR, 2);
-	free(line);
+	ft_strdel(&line);
 	exit(0);
 }
 
@@ -25,7 +25,7 @@ void invalid_room_err(char *line)
 {
 	ft_putendl_fd(line, 1);
 	ft_putendl_fd(INVALID_ROOM_ERR, 2);
-	free(line);
+	ft_strdel(&line);
 	exit(0);
 }
 
@@ -54,7 +54,7 @@ int is_start_wrapper(char *line, t_bool *start)
 	{
 		*start = TRUE;
 		ft_putendl_fd(line, 1);
-		free(line);
+		ft_strdel(&line);
 		return (1);
 	}
 	return (0);
@@ -66,7 +66,7 @@ int is_end_wrapper(char *line, t_bool *end)
 	{
 		*end = TRUE;
 		ft_putendl_fd(line, 1);
-		free(line);
+		ft_strdel(&line);
 		return (1);
 	}
 	return (0);
@@ -78,7 +78,7 @@ int is_comment_wrapper(char *line)
 	if (is_comment(line))
 	{
 		ft_putendl_fd(line, 1);
-		free(line);
+		ft_strdel(&line);
 		return (1);
 	}
 	return (0);

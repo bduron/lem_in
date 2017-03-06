@@ -76,6 +76,15 @@ lm_test  \
 lm_test  \
 	"Test 01: normal edges" \
 	"10\n#comment\n##start\nr1 4 3\nr3 0 9\n##end\nr2 4 99\nr1-r2\nr2-r3\nr3-r1"
+lm_test  \
+	"Test 02: double dash - -" \
+	"10\n#comment\n##start\nr1 4 3\nr3 0 9\n##end\nr2 4 99\nr1-r2\nr2-r3-\nr3-r1"
+lm_test  \
+	"Test 03: triple dash - - -" \
+	"10\n#comment\n##start\nr1 4 3\nr3 0 9\n##end\nr2 4 99\nr1-r2\nr2-r3--\nr3-r1"
+lm_test  \
+	"Test 04: circular edge roomA-roomA" \
+	"10\n#comment\n##start\nr1 4 3\nr3 0 9\n##end\nr2 4 99\nr1-r1\nr2-r3\nr3-r1"
 # tirets "-" "- -" "--"
 }
 
