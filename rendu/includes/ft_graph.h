@@ -34,5 +34,11 @@ void initialize_graph(t_graph *g, t_bool directed);
 void insert_edge(t_graph *g, int x, int y, t_bool directed);
 void print_graph(t_graph *g, char **label);
 
+void initialize_bfs(t_graph *g);
+void bfs(t_graph *g, int start);
+void process_vertex_late(int v);
+void process_vertex_early(int v);
+void process_edge(int v, int y);
+void find_path(int start, int end, int *parents);
 
 #endif

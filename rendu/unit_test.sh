@@ -85,6 +85,9 @@ lm_test  \
 lm_test  \
 	"Test 04: circular edge roomA-roomA" \
 	"10\n#comment\n##start\nr1 4 3\nr3 0 9\n##end\nr2 4 99\nr1-r1\nr2-r3\nr3-r1"
+lm_test  \
+	"Test 05: non-existing room in edge" \
+	"10\n#comment\n##start\nr1 4 3\nr3 0 9\n##end\nr2 4 99\nr2-r3\nr2-r9\nr3-r1"
 # tirets "-" "- -" "--"
 }
 

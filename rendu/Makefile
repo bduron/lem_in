@@ -6,14 +6,14 @@
 #    By: bduron <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 13:02:54 by bduron            #+#    #+#              #
-#    Updated: 2017/03/01 12:37:18 by bduron           ###   ########.fr        #
+#    Updated: 2017/03/07 16:57:00 by bduron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LEM_IN= lem-in
 
 CC= gcc
-CFLAGS= -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS= -Wall -Wextra -Werror -g -fsanitize=address
 LIBFT= -Llibft -lft 
 
 MKDIR= mkdir -p
