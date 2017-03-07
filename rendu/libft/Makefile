@@ -44,6 +44,9 @@ ft_putnbr.c \
 ft_putnbr_fd.c \
 ft_putstr.c \
 ft_putstr_fd.c \
+ft_lstappend.c \
+ft_lstpush.c \
+ft_lstpop.c \
 ft_lstaddback.c \
 ft_lstadd.c \
 ft_lstdel.c \

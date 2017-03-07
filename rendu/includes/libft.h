@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 17:42:08 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/13 14:54:52 by bduron           ###   ########.fr       */
+/*   Updated: 2017/02/06 12:44:42 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void			*ft_lstpop(t_list **alst);
+void			ft_lstpush(t_list **alst, t_list *new);
+void			ft_lstappend(t_list **alst, t_list *new);
 int				ft_islower(int c);
 int				ft_isupper(int c);
 void			ft_squeeze(char *s, int c);

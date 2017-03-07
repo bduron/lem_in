@@ -5,6 +5,23 @@ int main(void)
 	t_env e;
 	t_graph g;	
 
+/* test linked list */
+	t_list *l;
+
+	l = ft_lstnew("word0", 6);	
+	ft_lstpush(&l, ft_lstnew("word1", 6));
+	ft_lstpush(&l, ft_lstnew("word2", 6));
+	ft_lstpush(&l, ft_lstnew("word3", 6));
+	
+	while (l->next)
+	{
+		printf("%s -> ", (char *)(l->content));
+		l = l->next;	
+	}
+
+
+/* test linked list */
+
 	env_init(&e);
 	initialize_graph(&g, FALSE);
 	parse_graph(&g, &e);	
