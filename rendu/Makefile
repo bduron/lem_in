@@ -6,7 +6,7 @@
 #    By: bduron <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 13:02:54 by bduron            #+#    #+#              #
-#    Updated: 2017/03/07 16:57:00 by bduron           ###   ########.fr        #
+#    Updated: 2017/03/07 18:04:39 by bduron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ INC_DIR= includes/
 
 SRC= \
 ft_graph.c \
+ft_graph_bfs.c \
+ft_graph_shortestpath.c \
 lemin.c \
 lemin_init.c \
 lemin_parsing.c \
