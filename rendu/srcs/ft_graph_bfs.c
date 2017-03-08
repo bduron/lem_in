@@ -34,7 +34,8 @@ void process_vertex_late(int v)
 
 void process_vertex_early(int v)
 {
-	ft_printf("processed vertex : %d\n", v);
+	(void)v;
+	//ft_printf("processed vertex : %d\n", v);
 	return ;
 }
 

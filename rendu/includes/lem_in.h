@@ -14,6 +14,7 @@
 # define NO_PATH_ERR "ERROR: no valid path found"
 # define INVALID_ROOM_ERR "ERROR: invalid room format"
 # define INVALID_EDGE_ERR "ERROR: invalid edge"
+# define INVALID_PATH_ERR "ERROR: no path found"
 # define DUPLICATE_ROOM_ERR "ERROR: duplicate room"
 # define START_END_ERR "ERROR: ##start & ##end attributed to the same room"
 # define START "##start"
@@ -25,6 +26,8 @@ typedef struct	s_env
 	int end;
 	int nants;	
 	int nroom;
+	int path_len;
+	t_list *path;
 	char *error;
 	char *name[MAXV];
 	int coor_x[MAXV];
@@ -55,13 +58,19 @@ void save_edge(t_env *e, t_graph *g, char **edge);
 void env_init(t_env *e);
 void invalid_room_err(char *line);
 void invalid_edge_err(char *line);
+void invalid_path_err(void);
 int get_index(t_env *e, char *room_name);
 void free_lemin_env(t_env *e);
 void free_all(t_graph *g, t_env *e);
 
+void get_path(t_env *e, t_graph *g);
+int has_reached_end(t_env *e, int *ants);
+void print_moves(t_env *e, int *ants, int *path_tab);
+void move_ants(t_env *e);
 
-
-void    ft_strsplitdel(char **split); // add to lib
+int *ft_lstinttab(t_list *alst);
+int ft_lstlen(t_list *alst);
+void ft_strsplitdel(char **split); // add to lib
 int ft_isdigitstr(char *s); // add to lib 
 
 #endif

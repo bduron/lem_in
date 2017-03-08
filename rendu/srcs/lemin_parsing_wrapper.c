@@ -13,6 +13,12 @@
 #include "lem_in.h"
 
 
+void invalid_path_err(void) //put in wrapper 2 
+{
+	ft_putendl_fd(INVALID_PATH_ERR, 2);
+	exit(0);
+}
+
 void invalid_edge_err(char *line) //put in wrapper 2 
 {
 	ft_putendl_fd(line, 1);

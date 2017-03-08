@@ -39,6 +39,7 @@ void bfs(t_graph *g, int start);
 void process_vertex_late(int v);
 void process_vertex_early(int v);
 void process_edge(int v, int y);
-void find_path(int start, int end, int *parents);
+void find_path_rec(int start, int end, int *parents);
+t_list *find_path_bfs(int start, int end, int *parents);
 
 #endif
