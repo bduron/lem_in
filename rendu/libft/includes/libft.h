@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 17:42:08 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/06 12:44:42 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/09 17:34:31 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 # include <stdint.h>
 
 # define BUFF_SIZE 1
+# define MAXV 100000
 
 typedef enum
 {
 	FALSE,
 	TRUE
-}		t_bool;
+}	t_bool;
 
 typedef struct	s_list
 {
@@ -33,7 +34,27 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-# include "ft_graph.h"
+typedef struct	s_edgenode
+{
+	int					y;
+	int					weight;
+	char				*name;
+	struct s_edgenode	*next;
+
+}				t_edgenode;
+
+typedef struct	s_graph
+{
+	struct s_edgenode	*edges[MAXV + 1];
+	int					degree[MAXV + 1];
+	int					nvertices;
+	int					nedges;
+	t_bool				directed;
+	int					bfs_parent[MAXV + 1];
+	t_bool				bfs_processed[MAXV + 1];
+	t_bool				bfs_discovered[MAXV + 1];
+}				t_graph;
+
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putnbr(int n);
@@ -107,5 +128,21 @@ int				ft_isspace(int c);
 int				ft_isdigitstr(char *s);
 int				get_next_line(int fd, char **line);
 int				ft_printf(const char *format, ...);
+int				ft_getline(const int fd, char **line);
+
+/*
+** Graph functions
+*/
+
+void			initialize_graph(t_graph *g, t_bool directed);
+void			insert_edge(t_graph *g, int x, int y, t_bool directed);
+void			print_graph(t_graph *g, char **label);
+void			initialize_bfs(t_graph *g);
+void			bfs(t_graph *g, int start);
+void			process_vertex_late(int v);
+void			process_vertex_early(int v);
+void			process_edge(int v, int y);
+void			find_path_rec(int start, int end, int *parents);
+t_list			*find_path_bfs(int start, int end, int *parents);
 
 #endif

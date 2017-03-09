@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   addtolibft.c                                       :+:      :+:    :+:   */
+/*   ft_getline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/13 17:25:04 by bduron            #+#    #+#             */
-/*   Updated: 2017/02/13 17:26:17 by bduron           ###   ########.fr       */
+/*   Created: 2017/02/27 14:40:04 by bduron            #+#    #+#             */
+/*   Updated: 2017/02/27 16:40:58 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "libft.h"
 
-void    ft_strsplitdel(char **split) // Ajouter a la lib
+int		ft_getline(const int fd, char **line)
 {
-	int i;
+	char	buff[2];
+	char	*tmp;
+	int		ret;
 
-	i = 0;
-	while (split[i] != NULL)
-		free(split[i++]);
-	free(split);
+	*line = ft_strnew(0);
+	while ((ret = read(fd, buff, 1)) > 0)
+	{
+		buff[1] = '\0';
+		if (*buff == '\n')
+			break ;
+		tmp = *line;
+		*line = ft_strjoin(*line, buff);
+		ft_strdel(&tmp);
+	}
+	return (ret);
 }
-

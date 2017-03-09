@@ -6,55 +6,13 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:27:31 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/01 11:05:39 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/09 17:22:54 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-
-void invalid_path_err(void) //put in wrapper 2 
-{
-	ft_putendl_fd(INVALID_PATH_ERR, 2);
-	exit(0);
-}
-
-void invalid_edge_err(char *line) //put in wrapper 2 
-{
-	ft_putendl_fd(line, 1);
-	ft_putendl_fd(INVALID_EDGE_ERR, 2);
-	ft_strdel(&line);
-	exit(0);
-}
-
-void invalid_room_err(char *line)
-{
-	ft_putendl_fd(line, 1);
-	ft_putendl_fd(INVALID_ROOM_ERR, 2);
-	ft_strdel(&line);
-	exit(0);
-}
-
-void nocmd_noroom_err(t_env *e)
-{
-	if (!e->nroom)
-	{
-		ft_putendl_fd(NO_ROOM_ERR , 2);
-		exit(0);
-	}
-	if (e->start == MAXV - 1 || e->end == MAXV - 1)
-	{
-		ft_putendl_fd(NO_CMD_ERR , 2);
-		exit(0);
-	}
-	if (e->start == e->end)
-	{
-		ft_putendl_fd(START_END_ERR , 2);
-		exit(0);
-	}
-}
-
-int is_start_wrapper(char *line, t_bool *start)
+int		is_start_wrapper(char *line, t_bool *start)
 {
 	if (is_start(line))
 	{
@@ -66,7 +24,7 @@ int is_start_wrapper(char *line, t_bool *start)
 	return (0);
 }
 
-int is_end_wrapper(char *line, t_bool *end)
+int		is_end_wrapper(char *line, t_bool *end)
 {
 	if (is_end(line))
 	{
@@ -78,8 +36,7 @@ int is_end_wrapper(char *line, t_bool *end)
 	return (0);
 }
 
-
-int is_comment_wrapper(char *line)
+int		is_comment_wrapper(char *line)
 {
 	if (is_comment(line))
 	{
@@ -89,4 +46,3 @@ int is_comment_wrapper(char *line)
 	}
 	return (0);
 }
-

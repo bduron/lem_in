@@ -6,32 +6,32 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:30:14 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/01 09:27:33 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/09 17:15:49 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int is_start(char *line)
+int		is_start(char *line)
 {
 	return (!ft_strcmp(line, START));
 }
 
-int is_end(char *line)
+int		is_end(char *line)
 {
 	return (!ft_strcmp(line, END));
 }
 
-int is_comment(char *line)
+int		is_comment(char *line)
 {
 	return (line[0] == '#'
-			&& (ft_strcmp(line, START) && ft_strcmp(line, END)));
+		&& (ft_strcmp(line, START) && ft_strcmp(line, END)));
 }
 
-char **is_room(char *line)
+char	**is_room(char *line)
 {
-	char **room;
-	size_t len;
+	char	**room;
+	size_t	len;
 
 	room = ft_strsplit(line, ' ');
 	len = 0;
@@ -55,7 +55,7 @@ char **is_room(char *line)
 	return (room);
 }
 
-void save_room(t_env *e, char **room, t_bool *start, t_bool *end)
+void	save_room(t_env *e, char **room, t_bool *start, t_bool *end)
 {
 	if (is_duplicate(room[0], e))
 	{
@@ -63,7 +63,7 @@ void save_room(t_env *e, char **room, t_bool *start, t_bool *end)
 		ft_strsplitdel(room);
 		exit(0);
 	}
-	e->name[e->nroom] = ft_strdup(room[0]); // Strdup ?  
+	e->name[e->nroom] = ft_strdup(room[0]);
 	e->coor_x[e->nroom] = ft_atoi(room[1]);
 	e->coor_y[e->nroom] = ft_atoi(room[2]);
 	ft_strsplitdel(room);

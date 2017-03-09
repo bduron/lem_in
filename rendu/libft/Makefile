@@ -100,7 +100,8 @@ ft_tolower.c \
 ft_toupper.c \
 ft_graph_bfs.c \
 ft_graph.c \
-ft_graph_shortestpath.c
+ft_graph_shortestpath.c \
+ft_getline.c 
  
 	
 
@@ -108,7 +109,9 @@ OBJ= $(SRC:.c=.o)
 HEADER= includes
 FLAGS= -g -Wall -Wextra -Werror
 
-VPATH= src/ft_printf/:src/get_next_line/:src/memory/:src/print/:src/single_linked_list/:src/strings/:src/utils/
+VPATH= 	src/ft_printf/:src/get_next_line/:src/memory/:\
+		src/print/:src/single_linked_list/:src/strings/:src/utils/:\
+		src/graph
 
 
 ########################

@@ -6,7 +6,7 @@
 #    By: bduron <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 13:02:54 by bduron            #+#    #+#              #
-#    Updated: 2017/03/07 18:04:39 by bduron           ###   ########.fr        #
+#    Updated: 2017/03/09 17:23:17 by bduron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,20 +22,17 @@ RM= rm -rf
 INC_DIR= includes/
 
 SRC= \
-ft_graph.c \
-ft_graph_bfs.c \
-ft_graph_shortestpath.c \
 lemin.c \
 lemin_init.c \
 lemin_parsing.c \
 lemin_parsing_wrapper.c \
+lemin_parsing_wrapper_errors.c \
 lemin_parsing_helper.c \
 lemin_parsing_helper2.c \
+lemin_parsing_helper3.c \
 lemin_move_ants.c \
 lemin_get_path.c \
 lemin_free.c \
-addtolibft.c
-
 
 OBJ= $(SRC:.c=.o)
 

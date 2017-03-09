@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lemin.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/09 17:01:30 by bduron            #+#    #+#             */
+/*   Updated: 2017/03/09 17:03:40 by bduron           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
-void print_path(t_env *e)
+void	print_path(t_env *e)
 {
 	t_list *tmp;
 
@@ -12,25 +24,16 @@ void print_path(t_env *e)
 	}
 }
 
-int main(void)
+int		main(void)
 {
-	t_env e;
-	t_graph g;	
+	t_env	e;
+	t_graph	g;
 
 	env_init(&e);
 	initialize_graph(&g, FALSE);
-	parse_graph(&g, &e);	
-
-	ft_putendl("");
-	print_graph(&g, e.name); 
+	parse_graph(&g, &e);
 	get_path(&e, &g);
 	move_ants(&e);
-
-	print_path(&e);
-
-
-	free_all(&g, &e);	
-
-
+	free_all(&g, &e);
 	return (0);
 }
