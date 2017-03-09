@@ -17,7 +17,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdint.h>
-# include "ft_graph.h"
 
 # define BUFF_SIZE 1
 
@@ -27,7 +26,6 @@ typedef enum
 	TRUE
 }		t_bool;
 
-
 typedef struct	s_list
 {
 	void			*content;
@@ -35,6 +33,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+# include "ft_graph.h"
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putnbr(int n);

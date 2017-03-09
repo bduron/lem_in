@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_graph.h"
 
 void initialize_bfs(t_graph *g)
 {

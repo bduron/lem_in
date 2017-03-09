@@ -1,7 +1,8 @@
 
 #ifndef FT_GRAPH_H
 # define FT_GRAPH_H
-
+# include "libft.h"
+	
 # define MAXV 10000
 
 typedef struct	s_edgenode
@@ -23,8 +24,6 @@ typedef struct	s_graph
 	int					bfs_parent[MAXV + 1];
 	t_bool				bfs_processed[MAXV + 1];
 	t_bool				bfs_discovered[MAXV + 1];
-
-
 }				t_graph;
 
 

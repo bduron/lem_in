@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_graph.h"
 
 void initialize_graph(t_graph *g, t_bool directed)
 {

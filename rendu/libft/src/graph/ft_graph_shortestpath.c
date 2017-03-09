@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_graph.h"
 
 void find_path_rec(int start, int end, int *parents)
 {
