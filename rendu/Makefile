@@ -13,7 +13,7 @@
 LEM_IN= lem-in
 
 CC= gcc
-CFLAGS= -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS= -Wall -Wextra -Werror -g -fsanitize=address
 LIBFT= -Llibft -lft 
 
 MKDIR= mkdir -p

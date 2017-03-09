@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include "ft_graph.h"
 
 # define BUFF_SIZE 1
 
@@ -76,6 +77,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
+void			ft_strsplitdel(char **split);
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 void			ft_striter(char *s, void (*f)(char *));
 char			*ft_strmap(char const *s, char (*f)(char));
@@ -96,11 +98,14 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			*ft_lstpop(t_list **alst);
 void			ft_lstpush(t_list **alst, t_list *new);
 void			ft_lstappend(t_list **alst, t_list *new);
+int				ft_lstlen(t_list *alst);
+int				*ft_lstinttab(t_list *alst);
 int				ft_islower(int c);
 int				ft_isupper(int c);
 void			ft_squeeze(char *s, int c);
 void			ft_strrev(char *s);
 int				ft_isspace(int c);
+int				ft_isdigitstr(char *s);
 int				get_next_line(int fd, char **line);
 int				ft_printf(const char *format, ...);
 

@@ -54,6 +54,8 @@ ft_lstdelone.c \
 ft_lstiter.c \
 ft_lstmap.c \
 ft_lstnew.c \
+ft_lstlen.c \
+ft_lstinttab.c \
 ft_strcat.c \
 ft_strchr.c \
 ft_strclr.c \
@@ -78,6 +80,7 @@ ft_strnstr.c \
 ft_strrchr.c \
 ft_strrev.c \
 ft_strsplit.c \
+ft_strsplitdel.c \
 ft_strstr.c \
 ft_strsub.c \
 ft_strtrim.c \
@@ -86,6 +89,7 @@ ft_isalnum.c \
 ft_isalpha.c \
 ft_isascii.c \
 ft_isdigit.c \
+ft_isdigitstr.c \
 ft_islower.c \
 ft_isprint.c \
 ft_isspace.c \
@@ -93,7 +97,11 @@ ft_isupper.c \
 ft_itoa.c \
 ft_squeeze.c \
 ft_tolower.c \
-ft_toupper.c  
+ft_toupper.c \
+ft_graph_bfs.c \
+ft_graph.c \
+ft_graph_shortestpath.c
+ 
 	
 
 OBJ= $(SRC:.c=.o)

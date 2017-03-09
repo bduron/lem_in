@@ -146,6 +146,7 @@ void save_edge(t_env *e, t_graph *g, char **edge)
 	y = get_index(e, edge[1]);
 	if (is_in_adjacency_list(g, x, y) == FALSE)	
 		insert_edge(g, x, y, FALSE); 
+	ft_strsplitdel(edge);
 //	else
 //		ft_putendl_fd("WARNING: skipping duplicate edge", 2);	
 }

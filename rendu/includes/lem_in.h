@@ -3,7 +3,7 @@
 # define LEM_IN_H
 
 # include "libft.h"
-# include "ft_graph.h"
+//# include "ft_graph.h"
 # define MAXANT 64000
 # define NO_INPUT_ERR "ERROR: missing input"
 # define NO_ROOM_ERR "ERROR: can't find any room"
@@ -68,9 +68,5 @@ int has_reached_end(t_env *e, int *ants);
 void print_moves(t_env *e, int *ants, int *path_tab);
 void move_ants(t_env *e);
 
-int *ft_lstinttab(t_list *alst);
-int ft_lstlen(t_list *alst);
-void ft_strsplitdel(char **split); // add to lib
-int ft_isdigitstr(char *s); // add to lib 
 
 #endif

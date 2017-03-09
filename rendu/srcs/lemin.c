@@ -2,10 +2,13 @@
 
 void print_path(t_env *e)
 {
-	while (e->path)
+	t_list *tmp;
+
+	tmp = e->path;
+	while (tmp)
 	{
-		ft_printf("%s ", e->name[*(int *)(e->path->content)]);
-		e->path = e->path->next;
+		ft_printf("%s ", e->name[*(int *)(tmp->content)]);
+		tmp = tmp->next;
 	}
 }
 
@@ -18,8 +21,8 @@ int main(void)
 	initialize_graph(&g, FALSE);
 	parse_graph(&g, &e);	
 
-//	ft_putendl("");
-//	print_graph(&g, e.name); 
+	ft_putendl("");
+	print_graph(&g, e.name); 
 	get_path(&e, &g);
 	move_ants(&e);
 

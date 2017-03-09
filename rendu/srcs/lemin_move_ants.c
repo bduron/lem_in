@@ -1,37 +1,5 @@
 #include "lem_in.h"
 
-int *ft_lstinttab(t_list *alst) // to move libft
-{
-	int *tab;
-	int len; 
-	int i;
-	
-	if (!alst)
-		return (NULL);
-	len = ft_lstlen(alst);	
-	tab	= malloc(sizeof(int) * len);
-	i = 0;
-	while (i < len)
-	{
-		tab[i++] = *(int *)(alst->content);
-		alst = alst->next;	
-	}
-	return (tab);
-}
-
-int ft_lstlen(t_list *alst) // to move in libft
-{
-	int len;
-	
-	len = 0;
-	while (alst)
-	{
-		len++;
-		alst = alst->next;
-	}
-	return (len);
-}
-
 int has_reached_end(t_env *e, int *ants)
 {
 	int i;
@@ -72,11 +40,10 @@ void move_ants(t_env *e)
 	e->path_len = ft_lstlen(e->path);
 	path_tab = ft_lstinttab(e->path);
 	j = 0;
-	ft_putendl("");
 	while (!has_reached_end(e, ants))
 	{
 		i = 0;	
-		while (i <= j)	
+		while (i < j)	
 		{
 			ants[i]++;		
 			i++;
@@ -85,4 +52,6 @@ void move_ants(t_env *e)
 		if (j < e->nants)
 			j++;
 	}
+	free(ants);
+	free(path_tab);
 }
