@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 17:07:58 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/09 17:14:30 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/10 20:02:55 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	parse_edges(t_env *e, t_graph *g)
 			ft_strdel(&line);
 		}
 		else
-			invalid_edge_err(line);
+			return ;
+			//invalid_edge_err(line);
 	}
 	ft_strdel(&line);
 }

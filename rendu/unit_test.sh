@@ -134,10 +134,10 @@ lm_test  \
 
 main() {
 	display_title
-	correction_tests
+	#correction_tests
 	#ants_parsing
 	#rooms_parsing
-	#edges_parsing
+	edges_parsing
 }
 
 main $@
