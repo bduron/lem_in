@@ -30,6 +30,7 @@ void	parse_edges(t_env *e, t_graph *g)
 		else
 			invalid_edge_err(line);
 	}
+	ft_strdel(&line);
 }
 
 char	*parse_room(t_env *e)

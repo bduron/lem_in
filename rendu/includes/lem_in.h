@@ -14,7 +14,7 @@
 # define LEM_IN_H
 
 # include "libft.h"
-# define MAXANT 256000
+# define MAXANT 2147483647
 # define NO_INPUT_ERR "ERROR: missing input"
 # define NO_ROOM_ERR "ERROR: can't find any room"
 # define NO_ANT_ERR "ERROR: can't find any ant"
@@ -73,7 +73,7 @@ void			invalid_path_err(void);
 int				get_index(t_env *e, char *room_name);
 void			free_lemin_env(t_env *e);
 void			free_all(t_graph *g, t_env *e);
-void			get_path(t_env *e, t_graph *g);
+void			get_path(t_env *e, t_graph *g, t_bfs *b);
 int				has_reached_end(t_env *e, int *ants);
 void			print_moves(t_env *e, int *ants, int *path_tab);
 void			move_ants(t_env *e);

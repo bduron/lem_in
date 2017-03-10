@@ -28,11 +28,12 @@ int		main(void)
 {
 	t_env	e;
 	t_graph	g;
+	t_bfs b;
 
 	env_init(&e);
 	initialize_graph(&g, FALSE);
 	parse_graph(&g, &e);
-	get_path(&e, &g);
+	get_path(&e, &g, &b);
 	move_ants(&e);
 	free_all(&g, &e);
 	return (0);

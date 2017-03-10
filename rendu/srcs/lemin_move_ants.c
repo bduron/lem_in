@@ -33,7 +33,7 @@ void	print_moves(t_env *e, int *ants, int *path_tab)
 	while (i < e->nants)
 	{
 		if (ants[i] > 0 && ants[i] < e->path_len)
-			ft_printf("L%d-%s", i + 1, e->name[path_tab[ants[i]]]);
+			ft_printf("L%d-%s ", i + 1, e->name[path_tab[ants[i]]]);
 		i++;
 	}
 }

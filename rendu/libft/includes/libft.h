@@ -43,6 +43,16 @@ typedef struct	s_edgenode
 
 }				t_edgenode;
 
+typedef struct	s_bfs
+{
+	t_list		*queue;
+	int			v;
+	int			*pop;
+	int			y;
+	t_edgenode	*p;
+
+}				t_bfs;
+
 typedef struct	s_graph
 {
 	struct s_edgenode	*edges[MAXV + 1];
@@ -138,7 +148,7 @@ void			initialize_graph(t_graph *g, t_bool directed);
 void			insert_edge(t_graph *g, int x, int y, t_bool directed);
 void			print_graph(t_graph *g, char **label);
 void			initialize_bfs(t_graph *g);
-void			bfs(t_graph *g, int start);
+void			bfs_norme(t_graph *g, int start, t_bfs *b);
 void			process_vertex_late(int v);
 void			process_vertex_early(int v);
 void			process_edge(int v, int y);

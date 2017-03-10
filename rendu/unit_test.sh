@@ -17,6 +17,44 @@ echo -e "== $GREEN""  Lem_in parsing tests$RES   =="
 echo -e "==============================\n"
 }
 
+correction_tests() {
+echo -e "$GREEN""42 CORRECTION TESTS$RES"
+
+lm_test  \
+	"Test 00: no rooms" \
+	"10\n" 
+lm_test  \
+	"Test 01: no ants" \
+	"room1 1 1\n"
+lm_test  \
+	"Test 02a: no ##end / no ##start" \
+	"10\nroom1 1 1\nroom2 2 2\nroom3 3 3\nroom1-room2"
+lm_test  \
+	"Test 02b: no ##start" \
+	"10\nroom1 1 1\nroom2 2 2\n##end\nroom3 3 3\nroom1-room2"
+lm_test  \
+	"Test 02c: no ##end" \
+	"10\nroom1 1 1\nroom2 2 2\n##start\nroom3 3 3\nroom1-room2"
+lm_test  \
+	"Test 03: no valid path" \
+	"10\n##end\nroom1 1 1\nroom2 2 2\n##start\nroom3 3 3\nroom3-room2"
+lm_test  \
+	"Test 04: valid colony with comments" \
+	"10\n##this is a comment\n##end\nroom1 1 1\nroom2 2 2\n##start\nroom3 3 3\n#this is another comment\nroom3-room2\nroom2-room1"
+lm_test  \
+	"Test 05: valid colony with other commands" \
+	"10\n##command1\n##end\nroom1 1 1\nroom2 2 2\n##start\nroom3 3 3\n##command2\nroom3-room2\nroom2-room1"
+lm_test  \
+	"Test 06: valid input display output format" \
+	"10\n##end\nroom1 1 1\nroom2 2 2\n##start\nroom3 3 3\n#what a great output !\nroom3-room2\nroom2-room1"
+lm_test  \
+	"Test 07: Demonstrating shortest path" \
+	"1\n##start\nr0 1 1\nr1 1 1\nr2 1 1\nr3 1 1\n##end\nr4 1 1\nr5 1 1\nr6 1 1\nr7 1 1\nr0-r1\nr0-r5\nr1-r2\nr1-r7\nr2-r3\nr3-r4\nr4-r7\nr7-r6\nr6-r5"
+lm_test  \
+	"Test 08: Multiple ants" \
+	"10\n##start\nr0 1 1\nr1 1 1\nr2 1 1\nr3 1 1\n##end\nr4 1 1\nr5 1 1\nr6 1 1\nr7 1 1\nr0-r1\nr0-r5\nr1-r2\nr1-r7\nr2-r3\nr3-r4\nr4-r7\nr7-r6\nr6-r5"
+}
+
 ants_parsing() {
 echo -e "$GREEN""ANTS PARSING$RES"
 
@@ -96,9 +134,10 @@ lm_test  \
 
 main() {
 	display_title
-	ants_parsing
-	rooms_parsing
-	edges_parsing
+	correction_tests
+	#ants_parsing
+	#rooms_parsing
+	#edges_parsing
 }
 
 main $@
