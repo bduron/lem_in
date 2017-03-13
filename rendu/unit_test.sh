@@ -22,10 +22,10 @@ echo -e "$GREEN""42 CORRECTION TESTS$RES"
 
 lm_test  \
 	"Test 00: no rooms" \
-	"10\n" 
+	"10" 
 lm_test  \
 	"Test 01: no ants" \
-	"room1 1 1\n"
+	"room1 1 1"
 lm_test  \
 	"Test 02a: no ##end / no ##start" \
 	"10\nroom1 1 1\nroom2 2 2\nroom3 3 3\nroom1-room2"
@@ -134,9 +134,9 @@ lm_test  \
 
 main() {
 	display_title
-	#correction_tests
-	#ants_parsing
-	#rooms_parsing
+	correction_tests
+	ants_parsing
+	rooms_parsing
 	edges_parsing
 }
 

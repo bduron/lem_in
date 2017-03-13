@@ -24,12 +24,18 @@ void	parse_edges(t_env *e, t_graph *g)
 		if ((edge = is_edge(e, line)))
 		{
 			ft_putendl_fd(line, 1);
-			save_edge(e, g, edge);
+			if (save_edge(e, g, edge) == 0)
+			{
+				ft_strdel(&line);
+				return ;
+			}
 			ft_strdel(&line);
 		}
 		else
+		{
+			ft_strdel(&line);
 			return ;
-			//invalid_edge_err(line);
+		}
 	}
 	ft_strdel(&line);
 }

@@ -55,19 +55,14 @@ void	parse_room_to_edges(t_env *e, t_graph *g, char *line)
 	g->nvertices = e->nroom;
 }
 
-int		get_index(t_env *e, char *room_name)
+int		get_index(t_env *e, char *room_name, int *i)
 {
-	int i;
-
-	i = 0;
-	while (i < e->nroom && ft_strcmp(e->name[i], room_name))
-		i++;
-	if (i == e->nroom)
-	{
-		ft_putendl_fd("ERROR: get_index - room not found", 2);
-		exit(0);
-	}
-	return (i);
+	*i = 0;
+	while (*i < e->nroom && ft_strcmp(e->name[*i], room_name))
+		*i = *i + 1;
+	if (*i == e->nroom)
+		return (0);
+	return (1);
 }
 
 int		is_in_adjacency_list(t_graph *g, int x, int y)
@@ -84,14 +79,23 @@ int		is_in_adjacency_list(t_graph *g, int x, int y)
 	return (0);
 }
 
-void	save_edge(t_env *e, t_graph *g, char **edge)
+int		save_edge(t_env *e, t_graph *g, char **edge)
 {
 	int x;
 	int y;
 
-	x = get_index(e, edge[0]);
-	y = get_index(e, edge[1]);
+	if (get_index(e, edge[0], &x) == 0)
+	{
+		ft_strsplitdel(edge);
+		return (0);
+	}
+	if (get_index(e, edge[1], &y) == 0)
+	{
+		ft_strsplitdel(edge);
+		return (0);
+	}
 	if (is_in_adjacency_list(g, x, y) == FALSE)
 		insert_edge(g, x, y, FALSE);
 	ft_strsplitdel(edge);
+	return (1);
 }
