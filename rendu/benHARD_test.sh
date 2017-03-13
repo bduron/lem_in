@@ -2,13 +2,30 @@
 
 YEL="\033[33m"
 GREEN="\033[32m"
+RED="\033[31m"
 RES="\033[0m"
 INT_MAX="2147483647"
 INT_MIN="-2147483648"
 
+
 lm_test() { 
 	echo -e "\n$YEL"$1"$RES";
 	echo -e $2 | ./lem-in;
+}
+
+lm_test_verif() { 
+	echo -e "\n$YEL"$1"$RES";
+	echo -e $2 | ./lem-in;
+	RET=`echo -e $2 | ./lem-in | grep -e "\(L[0-9]+\).*\1"`;
+	if [[ $RET ]]; then
+		echo -e "$RED""\nSAME ANT ON THE SAME LINE"
+		echo -e "\nERROR : ""$RET";
+	fi
+	RET=`echo -e $2 | ./lem-in | grep -e "-\(.*\) .*\1"`;
+	if [[ $RET ]]; then
+		echo -e "$RED""\nSAME ROOM ON THE SAME LINE"
+		echo -e "\nERROR : ""$RET";
+	fi
 }
 
 lm_test_e() { 
@@ -56,7 +73,7 @@ correction_tests() {
 	lm_test  \
 		"Test 07: Demonstrating shortest path" \
 		"1\n##start\nr0 1 1\nr1 1 1\nr2 1 1\nr3 1 1\n##end\nr4 1 1\nr5 1 1\nr6 1 1\nr7 1 1\nr0-r1\nr0-r5\nr1-r2\nr1-r7\nr2-r3\nr3-r4\nr4-r7\nr7-r6\nr6-r5"
-	lm_test  \
+	lm_test_verif  \
 		"Test 08: Multiple ants" \
 		"10\n##start\nr0 1 1\nr1 1 1\nr2 1 1\nr3 1 1\n##end\nr4 1 1\nr5 1 1\nr6 1 1\nr7 1 1\nr0-r1\nr0-r5\nr1-r2\nr1-r7\nr2-r3\nr3-r4\nr4-r7\nr7-r6\nr6-r5"
 }
@@ -138,6 +155,7 @@ edges_parsing() {
 	# tirets "-" "- -" "--"
 }
 
+
 efficiency() {
 	echo -e "$GREEN""\nEFFICIENCY$RES"
 
@@ -162,10 +180,10 @@ efficiency() {
 main() {
 	display_title
 	correction_tests
-	ants_parsing
-	rooms_parsing
-	edges_parsing
-	efficiency
+#	ants_parsing
+#	rooms_parsing
+#	edges_parsing
+#	efficiency
 }
 
 main $@
