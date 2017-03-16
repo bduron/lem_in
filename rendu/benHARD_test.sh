@@ -180,10 +180,10 @@ efficiency() {
 main() {
 	display_title
 	correction_tests
-#	ants_parsing
-#	rooms_parsing
-#	edges_parsing
-#	efficiency
+	ants_parsing
+	rooms_parsing
+	edges_parsing
+	efficiency
 }
 
 main $@

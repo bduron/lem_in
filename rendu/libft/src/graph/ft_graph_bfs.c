@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 17:58:44 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/09 18:04:55 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/16 11:45:09 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,41 +75,40 @@ void	bfs_norme(t_graph *g, int start, t_bfs *b)
 }
 
 /*
-**
 ** real BFS, 31 lines ><
 **
-**void	bfs(t_graph *g, int start)
-**{
-**	t_list		*queue;
-**	int			v;
-**	int			*pop;
-**	int			y;
-**	t_edgenode	*p;
+** void	bfs(t_graph *g, int start)
+** {
+** 	t_list		*queue;
+** 	int			v;
+** 	int			*pop;
+** 	int			y;
+** 	t_edgenode	*p;
 **
-**	queue = ft_lstnew(&start, sizeof(start));
-**	g->bfs_discovered[start] = TRUE;
-**	while (queue != NULL)
-**	{
-**		pop = ft_lstpop(&queue);
-**		v = *pop;
-**		process_vertex_early(v);
-**		g->bfs_processed[v] = TRUE;
-**		p = g->edges[v];
-**		while (p != NULL)
-**		{
-**			y = p->y;
-**			if (g->bfs_processed[y] == FALSE)
-**				process_edge(v, y);
-**			if (g->bfs_discovered[y] == FALSE)
-**			{
-**				ft_lstappend(&queue, ft_lstnew(&y, sizeof(int)));
-**				g->bfs_discovered[y] = TRUE;
-**				g->bfs_parent[y] = v;
-**			}
-**			p = p->next;
-**		}
-**		process_vertex_late(v);
-**		free(pop);
-**	}
-**}
+** 	queue = ft_lstnew(&start, sizeof(start));
+** 	g->bfs_discovered[start] = TRUE;
+** 	while (queue != NULL)
+** 	{
+** 		pop = ft_lstpop(&queue);
+** 		v = *pop;
+** 		process_vertex_early(v);
+** 		g->bfs_processed[v] = TRUE;
+** 		p = g->edges[v];
+** 		while (p != NULL)
+** 		{
+** 			y = p->y;
+** 			if (g->bfs_processed[y] == FALSE)
+** 				process_edge(v, y);
+** 			if (g->bfs_discovered[y] == FALSE)
+** 			{
+** 				ft_lstappend(&queue, ft_lstnew(&y, sizeof(int)));
+** 				g->bfs_discovered[y] = TRUE;
+** 				g->bfs_parent[y] = v;
+** 			}
+** 			p = p->next;
+** 		}
+** 		process_vertex_late(v);
+** 		free(pop);
+** 	}
+** }
 */

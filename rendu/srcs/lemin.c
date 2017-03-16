@@ -6,7 +6,7 @@
 /*   By: bduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 17:01:30 by bduron            #+#    #+#             */
-/*   Updated: 2017/03/09 17:03:40 by bduron           ###   ########.fr       */
+/*   Updated: 2017/03/16 11:30:43 by bduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 {
 	t_env	e;
 	t_graph	g;
-	t_bfs b;
+	t_bfs	b;
 
 	env_init(&e);
 	initialize_graph(&g, FALSE);
