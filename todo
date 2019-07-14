@@ -1,9 +1,9 @@
 
 Todo clean :
 ============
-[ ] Checker la norme
-[ ] checker les leaks 
-[ ] makefile remove fsanitize
+[X] Checker la norme
+[X] checker les leaks 
+[X] makefile remove fsanitize
 
 
 Lem_in To Do :
